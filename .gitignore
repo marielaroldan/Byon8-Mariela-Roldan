@@ -1,0 +1,4 @@
+patient_data_base.txt
+out/*
+.idea/*
+*.iml
