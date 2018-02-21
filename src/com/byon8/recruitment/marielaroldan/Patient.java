@@ -2,9 +2,6 @@ package com.byon8.recruitment.marielaroldan;
 
 import java.util.UUID;
 
-/**
- * com.byon8.recruitment.marielaroldan.Patient with the corresponding answers for three simple questions
- */
 public class Patient {
 
     private static String id;
@@ -72,6 +69,23 @@ public class Patient {
                 '}';
     }
 
+    //Todo: Replace custom generation with library
+    public String toJson() {
+
+        return "{" +
+                "\"id\":" + "\"" + id + "\"," +
+                "\"name\":" + "\"" + name + "\"," +
+                "\"allergies\":" + "\"" + valueToString(allergies) + "\"," +
+                "\"chronicDisease\":" + "\"" + valueToString(chronicDisease) + "\"," +
+                "\"painPlace\":" + "\"" + valueToString(painPlace) + "\"" +
+                "}";
+    }
+
+    /**
+     * Replace null values with N/A (Not Applicable)
+     * @param value the value to transform
+     * @return N/A if value is null or else the value itself
+     */
     private String valueToString(String value) {
         return (value == null) ? "N/A" : value;
     }
